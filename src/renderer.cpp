@@ -8,7 +8,6 @@ Renderer::Renderer (const size_t sw,
 screen_width(sw), screen_height(sh),
 grid_width(gw), grid_height(gh)
 {
-    std::cout << "Renderer constructor (creating window -> renderer)\n";
     // Initialize SDL
     if (SDL_Init(SDL_INIT_VIDEO) < 0){
         std::cerr << "SDL could not be inititalized (" << SDL_GetError() << ")\n";
@@ -32,7 +31,6 @@ grid_width(gw), grid_height(gh)
 
 Renderer::~Renderer()
 {
-    std::cout << "Renderer destructor (destroying window -> renderer)\n";
     SDL_DestroyWindow(sdl_window);
     SDL_Quit();
 }

@@ -5,12 +5,10 @@
     Snake constructor.
 */
 Snake::Snake(int grid_width, int grid_height): alive(true), size_(1), speed(0.2), growing_(false) {
-    std::cout << "Snake constructor\n";
     grid_width_ = grid_width;
     grid_height_ = grid_height;
     head_x = grid_width/2;
     head_y = grid_height/2;
-    std::cout << "\tsnake head: (" << static_cast<int>(head_x) << "," << static_cast<int>(head_y) << ")\n";
 }
 
 std::size_t Snake::Size() const { return size_; }
@@ -40,7 +38,7 @@ void Snake::Update()
         has land over snake body.
     */
     if (IsSnakeCell(curr_head.x, curr_head.y) || Size() == 0){
-        std::cerr << "Snake eat his own body\n";
+        std::cerr << "\tHsssss snake eat itself\n";
         alive = false;
     }
     //std::cout << "updated head: (" << static_cast<int>(head_x) << "," << static_cast<int>(head_y) << ")\n";
