@@ -5,10 +5,10 @@
 
 int main ()
 {
-	constexpr size_t kScreenWidth = 768;
-	constexpr size_t kScreenHeight = 768;
-	constexpr size_t kGridWidth = 60;
-	constexpr size_t kGridHeight = 60;
+	constexpr size_t kScreenWidth = 720;
+	constexpr size_t kScreenHeight = 720;
+	constexpr size_t kGridWidth = kScreenWidth/15;
+	constexpr size_t kGridHeight = kScreenHeight/15;
 	constexpr size_t kFrameRate = 60; 
 
 	Controller controller;

@@ -13,6 +13,10 @@ This is a starter repo for C++ projects.
   * Linux: gcc / g++ is installed by default on most Linux distros
   * Mac: same deal as make - [install Xcode command line tools](https://developer.apple.com/xcode/features/)
   * Windows: recommend using [MinGW](http://www.mingw.org/)
+* SDL2 >= 2.0
+  * All installation instructions can be found [here](https://wiki.libsdl.org/SDL2/Installation).
+  
+  Note that for Linux, an `apt` or `apt-get` installation is preferred to building from source.
 
 ## Basic Build Instructions
 
@@ -20,3 +24,16 @@ This is a starter repo for C++ projects.
 2. Make a build directory in the top level directory: `mkdir build && cd build`
 3. Compile: `cmake .. && make`
 4. Run it: `./HelloWorld`.
+
+## Rubic Points
+
+### Loops, Functions, I/O
+
+* The project demonstrates an understanding of C++ functions and control structures.
+
+### Object Oriented Programming
+
+### Memory Management
+
+### Concurrency
+

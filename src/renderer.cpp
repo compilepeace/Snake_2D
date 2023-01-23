@@ -37,25 +37,41 @@ Renderer::~Renderer()
     SDL_Quit();
 }
 
-void Renderer::Render(Snake const &snake, SDL_Point const &food)
+void Renderer::Render(Snake const &snake, std::vector<Food> const &food)
 {
   SDL_Rect block;
-  block.w = screen_width / grid_width;
-  block.h = screen_height / grid_height;
+  block.w = screen_width / grid_width;    // width of a single block/cell
+  block.h = screen_height / grid_height;  // height of a single block/cell
 
   // Clear screen
   SDL_SetRenderDrawColor(sdl_renderer, 0x1E, 0x1E, 0x1E, 0xFF);
   SDL_RenderClear(sdl_renderer);
 
-  // Render food
-  SDL_SetRenderDrawColor(sdl_renderer, 0xFF, 0xCC, 0x00, 0xFF);
-  block.x = food.x * block.w;
-  block.y = food.y * block.h;
-    //std::cout << "F(" << block.x << "," <<  block.y << ")\n";
-  SDL_RenderFillRect(sdl_renderer, &block);
+  // Render food items
+  for (auto &item : food) {
+    if (item.onGrid) {
+      switch (item.type) {
+      case Food::Type::kHealthy:
+        // 0xffcc00
+        SDL_SetRenderDrawColor(sdl_renderer, 0x3F, 0xA4, 0x7D, 0xFF);
+        break;
+      case Food::Type::kBonus:
+        SDL_SetRenderDrawColor(sdl_renderer, 0xF9, 0xC5, 0x52, 0xFF);
+        break;
+      case Food::Type::kPoison:
+        SDL_SetRenderDrawColor(sdl_renderer, 0xBA, 0x4D, 0x2D, 0xFF);
+        break;
+      }
+
+      block.x = item.x * block.w;
+      block.y = item.y * block.h;
+      // std::cout << "F(" << block.x << "," <<  block.y << ")\n";
+      SDL_RenderFillRect(sdl_renderer, &block);
+    }
+  }
 
   // Render snake's body
-  SDL_SetRenderDrawColor(sdl_renderer, 0xFF, 0xFF, 0xFF, 0xFF);
+  SDL_SetRenderDrawColor(sdl_renderer, 0xEC, 0xE9, 0xD4, 0xFF);
   for (SDL_Point const &point : snake.body) {
     block.x = point.x * block.w;
     block.y = point.y * block.h;
@@ -70,7 +86,7 @@ void Renderer::Render(Snake const &snake, SDL_Point const &food)
   if (snake.alive) {
     SDL_SetRenderDrawColor(sdl_renderer, 0x00, 0x7A, 0xCC, 0xFF);
   } else {
-    SDL_SetRenderDrawColor(sdl_renderer, 0xFF, 0xFF, 0xFF, 0xFF);
+    SDL_SetRenderDrawColor(sdl_renderer, 0xFF, 0x00, 0x00, 0xFF);
   }
   SDL_RenderFillRect(sdl_renderer, &block);
 

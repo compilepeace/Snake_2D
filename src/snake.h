@@ -30,7 +30,7 @@ public:
     double head_y;
     void Update();
     void GrowBody();
-    bool IsSnakeCell (const SDL_Point &cell);
+    bool IsSnakeCell (const int x, const int y);
 
 private:
     std::size_t size_;

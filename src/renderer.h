@@ -2,7 +2,9 @@
 #define _RENDERER_H
 
 #include <SDL2/SDL.h>
+#include <vector>
 #include "snake.h"
+#include "food.h"
 
 class Renderer
 {
@@ -15,7 +17,7 @@ public:
     ~Renderer();
 
     // behavior specific members
-    void Render(Snake const &snake, SDL_Point const &food);
+    void Render(Snake const &snake, std::vector<Food> const &food);
     void UpdateWindowTitle(int score, int fps);
 
 private:
