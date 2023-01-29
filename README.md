@@ -4,7 +4,10 @@
 
 <img src="./rsrc/snake_2d.gif">
 
-Snake 2D is an instance of classical snake game as a part of Udacity's Capstone project. A snake grows by eating food items placed on grid which may be a healthy food (GREEN), poison (RED) or bonus food (YELLOW) which has desired concequences on snake's speed, size and player's highscore. If the snake moves off the grid, it will reappear from the opposite end and dies if it bites its own body. The game score and frame rate is displayed at the title bar of game window.
+Snake 2D is an instance of classical snake game as a part of Udacity's Capstone project. The game project uses [Simple DirectMedia Layer](https://www.libsdl.org/) library ([SDL2 API](https://wiki.libsdl.org/SDL2/APIByCategory)) as a means to interact with low level components. 
+
+
+The snake in game grows by eating food items placed on grid which may be a healthy food (GREEN), poison (RED) or bonus food (YELLOW) which has desired concequences on snake's speed, size and player's highscore. If the snake moves off the grid, it will reappear from the opposite end and dies if it bites its own body. The game score and frame rate is displayed at the title bar of game window.
 
 ## Dependencies for Running Locally
 * cmake >= 3.7
@@ -29,6 +32,9 @@ Snake 2D is an instance of classical snake game as a part of Udacity's Capstone 
 2. Make a build directory in the top level directory: `mkdir build && cd build`
 3. Compile: `cmake .. && make`
 4. Run it: `./HelloWorld`.
+
+## Software Design
+<img src="./rsrc/snake_ald.png">
 
 ## Rubic Points
 
